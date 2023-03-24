@@ -28,7 +28,7 @@ file_path = "consolidated.csv"
 
 content = read_file(bucket_name, file_path)
 
-dataframe=pd.DataFrame(content)
+df = pd.read_csv(content)
 
 st.dataframe(dataframe.style.highlight_max(axis=0))
 
