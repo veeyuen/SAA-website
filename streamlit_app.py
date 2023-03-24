@@ -9,6 +9,10 @@ import numpy as np
 from google.oauth2 import service_account
 from google.cloud import storage
 
+bucket_name = "singapore_athletics_association"
+file_path = "consolidated.csv"
+
+
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
@@ -21,10 +25,9 @@ client = storage.Client(credentials=credentials)
 def read_file(bucket_name, file_path):
     bucket = client.bucket(bucket_name)
     content = bucket.blob(file_path).download_as_string().decode("utf-8")
+    temp = pd.read_csv('gs://singapore_athletics_association/consolidated.csv', encoding='utf-8')
     return content
 
-bucket_name = "singapore_athletics_association"
-file_path = "consolidated.csv"
 
 
 content = read_file(bucket_name, file_path)
