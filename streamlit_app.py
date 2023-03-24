@@ -8,8 +8,6 @@ import numpy as np
 from google.oauth2 import service_account
 from google.cloud import storage
 
-print('start')
-
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
@@ -27,13 +25,12 @@ def read_file(bucket_name, file_path):
 bucket_name = "singapore_athletics_association"
 file_path = "consolidated.csv"
 
-print("all good until here")
 
-#content = read_file(bucket_name, file_path)
+content = read_file(bucket_name, file_path)
 
-#dataframe=pd.DataFrame(content)
+dataframe=pd.DataFrame(content)
 
-#st.dataframe(dataframe.style.highlight_max(axis=0))
+st.dataframe(dataframe.style.highlight_max(axis=0))
 
 
 ## Upload csv into GCS
