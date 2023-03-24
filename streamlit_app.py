@@ -4,6 +4,8 @@ import streamlit as st
 import csv
 import pandas as pd
 import numpy as np
+import ptvsd
+
 
 from google.oauth2 import service_account
 from google.cloud import storage
@@ -30,10 +32,10 @@ content = read_file(bucket_name, file_path)
 
 print("all ok")
 
-st.write(content)
+st.table(content)
 
 
-st.dataframe(dataframe.style.highlight_max(axis=0))
+#st.dataframe(dataframe.style.highlight_max(axis=0))
 
 
 ## Upload csv into GCS
