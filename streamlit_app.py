@@ -28,6 +28,8 @@ file_path = "consolidated.csv"
 
 content = read_file(bucket_name, file_path)
 
+print("all ok")
+
 st.write(content)
 
 
