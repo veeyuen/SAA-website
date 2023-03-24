@@ -10,7 +10,7 @@ from google.oauth2 import service_account
 from google.cloud import storage
 
 bucket_name = "singapore_athletics_association"
-file_path = "consolidated.csv"
+file_path = "gs://consolidated.csv"
 
 
 # Create API client.
@@ -25,12 +25,13 @@ client = storage.Client(credentials=credentials)
 def read_file(bucket_name, file_path):
     bucket = client.bucket(bucket_name)
     content = bucket.blob(file_path).download_as_string().decode("utf-8")
-    temp = pd.read_csv('gs://singapore_athletics_association/consolidated.csv', encoding='utf-8')
+#    temp = pd.read_csv('gs://singapore_athletics_association/consolidated.csv', encoding='utf-8')
+
     return content
 
 
 
-content = read_file(bucket_name, file_path)
+table = read_file(bucket_name, file_path)
 
 print("all ok")
 
