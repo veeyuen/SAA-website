@@ -41,7 +41,7 @@ def hello_world(request):
 
 
 #table = read_file(bucket_name, file_path)
-table=hello_world()
+table=hello_world(file_path)
 
 print("all ok")
 
