@@ -25,11 +25,11 @@ def read_file(bucket_name, file_path):
 bucket_name = "singapore_athletics_association"
 file_path = "consolidated.csv"
 
-content = read_file(bucket_name, file_path)
+#content = read_file(bucket_name, file_path)
 
-dataframe=pd.DataFrame(content)
+#dataframe=pd.DataFrame(content)
 
-st.dataframe(dataframe.style.highlight_max(axis=0))
+#st.dataframe(dataframe.style.highlight_max(axis=0))
 
 
 ## Upload csv into GCS
