@@ -28,7 +28,7 @@ file_path = "consolidated.csv"
 
 content = read_file(bucket_name, file_path)
 
- st.write(content)
+st.write(content)
 
 
 st.dataframe(dataframe.style.highlight_max(axis=0))
