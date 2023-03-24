@@ -25,6 +25,8 @@ def read_file(bucket_name, file_path):
 bucket_name = "singapore_athletics_association"
 file_path = "consolidated.csv"
 
+print("all good until here")
+
 #content = read_file(bucket_name, file_path)
 
 #dataframe=pd.DataFrame(content)
