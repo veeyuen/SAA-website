@@ -57,7 +57,7 @@ URL = ("https://storage.googleapis.com/singapore_athletics_association/consolida
 
 def load_data(nrows):
 
-    data = pd.read_csv(URL, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
+    data = pd.read_csv(URL, nrows=nrows, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
               'Year D.O.B.', 'Info, if any'])
     return data
 
