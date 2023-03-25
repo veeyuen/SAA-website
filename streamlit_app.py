@@ -67,7 +67,7 @@ def load_data(nrows):
               'Year D.O.B.', 'Info, if any'])
     return data
 
-data = load_data(100)
+data = load_data(500)
 
 st.dataframe(data)
 
@@ -147,7 +147,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-#st.dataframe(filter_dataframe(data))
+st.dataframe(filter_dataframe(data))
 
 
 ## Data preprocess and cleaning
