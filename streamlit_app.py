@@ -59,17 +59,17 @@ file_path = "consolidated.csv"
 
 URL = ("https://storage.googleapis.com/singapore_athletics_association/consolidated.csv")
 
-#@st.cache(persist=True)
+@st.cache(persist=True)
 
-def load_data():
+def load_data(nrows):
 
-    data = pd.read_csv(URL, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
+    data = pd.read_csv(URL, nrows=nrows, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
               'Year D.O.B.', 'Info, if any'])
     return data
 
-data = load_data()
+data = load_data(200)
 
-#st.dataframe(data)
+st.dataframe(data)
 
 ## Interactive dataframe filtering
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
@@ -147,7 +147,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-st.dataframe(filter_dataframe(data))
+#st.dataframe(filter_dataframe(data))
 
 
 ## Data preprocess and cleaning
