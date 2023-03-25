@@ -155,6 +155,10 @@ make_choice = st.sidebar.selectbox('Select the event:', events)
 dates = data["Date"].loc[data["Event"] == make_choice]
 date_choice = st.sidebar.selectbox('Date', dates)
 
+filter=data.loc[(data['Event']=make_choice) & (data['Date']=date_choice)]
+st.dataframe(filter)
+
+
 ## Data preprocess and cleaning
 def preprocess(i, string, metric):
 
