@@ -61,15 +61,15 @@ URL = ("https://storage.googleapis.com/singapore_athletics_association/consolida
 
 @st.cache(persist=True)
 
-def load_data(nrows):
+def load_data():
 
-    data = pd.read_csv(URL, nrows=nrows, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
+    data = pd.read_csv(URL, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
               'Year D.O.B.', 'Info, if any'])
     return data
 
-data = load_data(500)
+data = load_data()
 
-st.dataframe(data)
+#st.dataframe(data)
 
 ## Interactive dataframe filtering
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
