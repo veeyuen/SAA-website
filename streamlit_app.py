@@ -63,6 +63,9 @@ def load_data(nrows):
 
 data = load_data(10)
 
+st.dataframe(data)
+
+
 
 
 
