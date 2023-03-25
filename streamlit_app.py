@@ -82,12 +82,12 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: Filtered dataframe
     """
-    modify = st.checkbox("Add filters")
+    #modify = st.checkbox("Add filters")
 
-    if not modify:
-        return df
+    #if not modify:
+    #    return df
 
-    df = df.copy()
+    #df = df.copy()
 
     # Try to convert datetimes into a standard format (datetime, no timezone)
     for col in df.columns:
