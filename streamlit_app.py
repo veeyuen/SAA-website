@@ -14,41 +14,58 @@ file_path = "consolidated.csv"
 
 
 # Create API client.
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"]
-)
-client = storage.Client(credentials=credentials)
+#credentials = service_account.Credentials.from_service_account_info(
+#    st.secrets["gcp_service_account"]
+#)
+#client = storage.Client(credentials=credentials)
 
 # Retrieve file contents.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
-def read_file(bucket_name, file_path):
-    bucket = client.bucket(bucket_name)
-    content = bucket.blob(file_path).download_as_string().decode("utf-8")
+#def read_file(bucket_name, file_path):
+#    bucket = client.bucket(bucket_name)
+#    content = bucket.blob(file_path).download_as_string().decode("utf-8")
 #    temp = pd.read_csv('gs://singapore_athletics_association/consolidated.csv', encoding='utf-8')
 
-    return content
+#   return content
 
 
-def hello_world(request):
-    # it is mandatory initialize the storage client
-    client = storage.Client()
-    #please change the file's URI
-    temp = pd.read_csv('gs://singapore_athletics_association/consolidated.csv', encoding='utf-8')
-    print (temp.head())
-    return f'check the results in the logs'
+#def hello_world(request):
+#    # it is mandatory initialize the storage client
+#    client = storage.Client()
+#    #please change the file's URI
+#    temp = pd.read_csv('gs://singapore_athletics_association/consolidated.csv', encoding='utf-8')
+#    print (temp.head())
+#    return f'check the results in the logs'
 
 
 
 #table = read_file(bucket_name, file_path)
-table=hello_world(file_path)
+#table=hello_world(file_path)
 
-print("all ok")
+#print("all ok")
 
-st.table(content)
+#st.table(content)
 
 
 #st.dataframe(dataframe.style.highlight_max(axis=0))
+
+
+DATA_URL = (
+    "https://storage.googleapis.com/singapore_athletics_association/consolidated.csv"
+)
+
+@st.cache(persist=True)
+
+def load_data(nrows):
+
+    data = pd.read_csv(DATA_URL, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
+              'Year D.O.B.', 'Info, if any'])
+    return data
+
+data = load_data(10)
+
+
 
 
 ## Upload csv into GCS
