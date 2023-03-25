@@ -31,8 +31,6 @@ file_path = "consolidated.csv"
 #def read_file(bucket_name, file_path):
 #    bucket = client.bucket(bucket_name)
 #    content = bucket.blob(file_path).download_as_string().decode("utf-8")
-#    temp = pd.read_csv('gs://singapore_athletics_association/consolidated.csv', encoding='utf-8')
-
 #   return content
 
 
@@ -59,12 +57,12 @@ file_path = "consolidated.csv"
 
 URL = ("https://storage.googleapis.com/singapore_athletics_association/consolidated.csv")
 
-@st.cache(persist=True, allow_input_mutation=True)
+@st.cache(persist=True)
 
 def load_data():
 
     print("Loading data from Google Cloud Storage....")
-
+    client = storage.Client()
     data = pd.read_csv(URL, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
               'Year D.O.B.', 'Info, if any'])
     return data
@@ -154,6 +152,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 events = data['Event'].drop_duplicates()
 make_choice = st.sidebar.selectbox('Select the event:', events)
+event = data["Event"].loc[data["Event"] = make_choice]
 
 
 ## Data preprocess and cleaning
