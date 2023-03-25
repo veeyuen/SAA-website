@@ -152,7 +152,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 events = data['Event'].drop_duplicates()
 make_choice = st.sidebar.selectbox('Select the event:', events)
-dates = data["Date"].loc[data["Event"] = make_choice]
+dates = data["Date"].loc[data["Event"] == make_choice]
 date_choice = st.sidebar.selectbox('Date', dates)
 
 ## Data preprocess and cleaning
