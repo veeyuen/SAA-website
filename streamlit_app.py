@@ -59,7 +59,7 @@ file_path = "consolidated.csv"
 
 URL = ("https://storage.googleapis.com/singapore_athletics_association/consolidated.csv")
 
-@st.cache(persist=True)
+@st.cache(persist=True, allow_input_mutation=True)
 
 def load_data():
 
