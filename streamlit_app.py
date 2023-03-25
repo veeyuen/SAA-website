@@ -21,7 +21,7 @@ file_path = "consolidated.csv"
 
 # Retrieve file contents.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
+#@st.cache_data(ttl=600)
 #def read_file(bucket_name, file_path):
 #    bucket = client.bucket(bucket_name)
 #    content = bucket.blob(file_path).download_as_string().decode("utf-8")
@@ -51,15 +51,13 @@ file_path = "consolidated.csv"
 #st.dataframe(dataframe.style.highlight_max(axis=0))
 
 
-DATA_URL = (
-    "https://storage.googleapis.com/singapore_athletics_association/consolidated.csv"
-)
+URL = ("https://storage.googleapis.com/singapore_athletics_association/consolidated.csv")
 
 @st.cache(persist=True)
 
 def load_data(nrows):
 
-    data = pd.read_csv(DATA_URL, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
+    data = pd.read_csv(URL, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
               'Year D.O.B.', 'Info, if any'])
     return data
 
