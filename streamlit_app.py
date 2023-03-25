@@ -151,10 +151,9 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 #st.dataframe(filter_dataframe(data))
 
-def filter_df(data):
 
-    events = data['Event'].drop_duplicates()
-    make_choice = st.sidebar.selectbox('Select the event:', events)
+events = data['Event'].drop_duplicates()
+make_choice = st.sidebar.selectbox('Select the event:', events)
 
 
 ## Data preprocess and cleaning
