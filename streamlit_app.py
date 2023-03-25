@@ -67,7 +67,7 @@ def load_data(nrows):
               'Year D.O.B.', 'Info, if any'])
     return data
 
-data = load_data(100)
+data = load_data(10)
 
 #st.dataframe(data)
 
