@@ -169,13 +169,17 @@ filter=data.loc[mask]
 
 st.dataframe(filter)
 
+stats=filter['Age']
+
 fig, ax = plt.subplots()
 
-ax = sns.displot(data=filter, x='Age', kde=True, color = "#b80606")
+#ax = sns.displot(data=filter, x='Age', kde=True, color = "#b80606")
+
+ax = sns.displot(stats, kde=True, color = "#b80606")
+
 
 st.pyplot(fig)
 
-stats=filter['Age']
 
 summary = stats.describe()
 st.write(summary)
