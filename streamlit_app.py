@@ -271,6 +271,8 @@ uploaded_file = st.file_uploader("Upload new records via CSV file", accept_multi
 if uploaded_file is not None:
 
     df_new=pd.read_csv(uploaded_file)
+    st.dataframe(df_new)
+
     df_processed=clean(df_new)
     st.dataframe(df_processed)
 
