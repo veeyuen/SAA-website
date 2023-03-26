@@ -25,7 +25,7 @@ file_path = "consolidated.csv"
 ## Data preprocess and cleaning
 def preprocess(i, string, metric):
 
-    global output
+    global OP
 
     l=['discus', 'throw', 'jump', 'vault', 'shot']
 
@@ -33,7 +33,7 @@ def preprocess(i, string, metric):
 
     if any(s in string for s in l)==True:
 
-        output=float(str(metric))
+        OP=float(str(metric))
 
     else:
 
@@ -44,20 +44,20 @@ def preprocess(i, string, metric):
         count2 = substring.count(searchstring2)
 
         if count==0:
-            output=float(substring)
+            OP=float(substring)
 
 
         elif (type(metric)==datetime.time or type(metric)==datetime.datetime):
 
             time=str(metric)
             h, m ,s = time.split(':')
-            output = float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=float(s)).total_seconds())
+            OP = float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=float(s)).total_seconds())
 
 
         elif (count==1 and count2==1):
 
             m,s = metric.split(':')
-            output = float(datetime.timedelta(minutes=int(m),seconds=float(s)).total_seconds())
+            OP = float(datetime.timedelta(minutes=int(m),seconds=float(s)).total_seconds())
 
             if output==229.90:
                 print(metric, m, s, output, 'here')
@@ -68,16 +68,16 @@ def preprocess(i, string, metric):
             metric = metric.replace(".", ":", 1)
 
             h,m,s = metric.split(':')
-            output = float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=float(s)).total_seconds())
+            OP = float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=float(s)).total_seconds())
 
 
         elif (count==2 and count2==0):
 
             h,m,s = metric.split(':')
-            output = float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=float(s)).total_seconds())
+            OP = float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=float(s)).total_seconds())
 
 
-    return output
+    return OP
 
 # Clean each row of input file
 
@@ -142,7 +142,7 @@ def load_data():
 
     client = storage.Client()
     data = pd.read_csv(URL, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
-              'Year D.O.B.', 'Info, if any'])
+              'Year D.O.B.', 'Info, if any', 'Metric'])
     return data
 
 data = load_data()
@@ -245,19 +245,19 @@ filter=data.loc[mask]
 
 st.dataframe(filter)
 
-ages = filter['Age']
+metrics = filter['Metric']
 
 fig, ax = plt.subplots()
 
 plt.title("Distribution of Times/Distances")
-ax = sns.histplot(data=filter, x='Age', kde=True, color = "#b80606")
+ax = sns.histplot(data=filter, x='Metric', kde=True, color = "#b80606")
 
 #ax = sns.distplot(filter)
 
 
 st.pyplot(fig)
 
-summary = ages.describe()
+summary = metrics.describe()
 st.write(summary)
 
 
