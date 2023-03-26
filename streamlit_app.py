@@ -4,8 +4,9 @@ import streamlit as st
 import csv
 import pandas as pd
 import numpy as np
+
+from matplotlib import pyplot as plt
 import seaborn as sns
-import matplotlib as plt
 
 from pandas.api.types import (
     is_categorical_dtype,
