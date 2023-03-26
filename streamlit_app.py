@@ -4,6 +4,8 @@ import streamlit as st
 import csv
 import pandas as pd
 import numpy as np
+import seaborn as sns
+import matplotlib as plt
 
 from pandas.api.types import (
     is_categorical_dtype,
@@ -165,26 +167,13 @@ mask = ((data['Date'] > start_date) & (data['Date'] <= end_date) & (data['Event'
 
 filter=data.loc[mask]
 
-
-#container = st.beta_container()
-#all = st.checkbox("Select all years")
-
-#if all:
-#    date_choice = container.multiselect("Select year:",
-#         ['A', 'B', 'C'],['A', 'B', 'C'])
-
-#    filter=data.loc[(data['Event']==make_choice)]
-
-
-#else:
-#    selected_options =  container.multiselect("Select one or more options:",
-#        ['A', 'B', 'C'])
-
-#    filter=data.loc[(data['Event']==make_choice) & (data['Date']==date_choice)]
-
-
 st.dataframe(filter)
 
+fig, ax = plt.subplots()
+
+ax = sns.barplot(x="Times", y="XXX", data=filter['Age'], color = "#b80606")
+
+st.pyplot(fig)
 
 
 
