@@ -163,7 +163,7 @@ end_date = st.sidebar.selectbox('End Date', dates)
 
 mask = (data['Date'] > start_date) & (data['Date'] <= end_date)
 
-#filter=data.loc[(data['Event']==event_choice) & (data.loc[mask])]
+filter=data.loc[data['Event']==event_choice & (data['Date'] > start_date) & (data['Date'] <= end_date)]
 
 
 #container = st.beta_container()
