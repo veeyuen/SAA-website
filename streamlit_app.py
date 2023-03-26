@@ -34,6 +34,7 @@ def preprocess(i, string, metric):
     OP=0
 
     if any(s in string for s in l)==True:
+        st.write(type(metric))
 
         OP=float(str(metric))
 
@@ -46,7 +47,7 @@ def preprocess(i, string, metric):
         count2 = substring.count(searchstring2)
 
         if count==0:
-            OP=float(str(metric))
+            OP=float(substring)
 
 
         elif (type(metric)==datetime.time or type(metric)==datetime.datetime):
