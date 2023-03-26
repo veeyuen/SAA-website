@@ -47,10 +47,10 @@ def preprocess(i, string, metric):
 
         st.write(substring)
 
-        breakpoint()
-
         if count==0:
-            OP=float(substring)
+#            OP=float(substring)
+            OP=substring
+
 
 
         elif (type(metric)==datetime.time or type(metric)==datetime.datetime):
