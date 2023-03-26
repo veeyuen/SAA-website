@@ -44,9 +44,7 @@ def preprocess(i, string, metric):
         count2 = substring.count(searchstring2)
 
         if count==0:
-#            OP=float(substring)
-            OP=substring
-
+            OP=float(metric)
 
 
         elif (type(metric)==datetime.time or type(metric)==datetime.datetime):
@@ -260,14 +258,13 @@ summary = metrics.describe()
 st.write(summary)
 
 
-# Upload csv
+## Upload CSV
 
 uploaded_file = st.file_uploader("Upload records via CSV file", accept_multiple_files=False)
 
 if uploaded_file is not None:
 
     df_new=pd.read_csv(uploaded_file)
-    st.dataframe(df_new)
     df_processed=clean(df_new)
     st.dataframe(df_processed)
 
