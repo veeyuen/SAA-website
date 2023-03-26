@@ -44,7 +44,9 @@ def preprocess(i, string, metric):
         count2 = substring.count(searchstring2)
 
         if count==0:
-            OP=float(substring)
+#            OP=float(substring)
+            OP=substring
+
 
 
         elif (type(metric)==datetime.time or type(metric)==datetime.datetime):
@@ -58,10 +60,6 @@ def preprocess(i, string, metric):
 
             m,s = metric.split(':')
             OP = float(datetime.timedelta(minutes=int(m),seconds=float(s)).total_seconds())
-
-            if output==229.90:
-                print(metric, m, s, output, 'here')
-
 
         elif (count==1 and count2==2):
 
