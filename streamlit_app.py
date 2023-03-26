@@ -172,7 +172,7 @@ st.dataframe(filter)
 
 fig, ax = plt.subplots()
 
-ax = sns.histplot(data=filter, x='Age', color = "#b80606")
+ax = sns.histplot(data=filter, x='Age', kde=True, color = "#b80606")
 
 st.pyplot(fig)
 
