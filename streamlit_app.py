@@ -45,6 +45,8 @@ def preprocess(i, string, metric):
         count = substring.count(searchstring)
         count2 = substring.count(searchstring2)
 
+        st.write(substring)
+
         if count==0:
             OP=float(substring)
 
