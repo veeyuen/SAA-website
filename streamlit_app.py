@@ -194,6 +194,9 @@ if uploaded_file is not None:
     df_new=pd.read_csv(uploaded_file)
 
 
+st.dataframe(df_new)
+
+
 
 
 
