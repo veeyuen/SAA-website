@@ -264,9 +264,9 @@ def clean(data):
         input_string=data.iloc[rowIndex,2]
         metric=data.iloc[rowIndex,6]
 
-        out = preprocess(i, input_string, metric)
+        processed_output = preprocess(i, input_string, metric)
 
-        data.loc[rowIndex, 'Metric'] = out
+        data.loc[rowIndex, 'Metric'] = processed_output
 
     return data
 
