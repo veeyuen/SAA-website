@@ -1,6 +1,5 @@
 # streamlit_app.py
 
-
 import streamlit as st
 import csv
 import pandas as pd
@@ -173,9 +172,9 @@ st.dataframe(filter)
 
 fig, ax = plt.subplots()
 
-#ax = sns.barplot(x="Times", y="XXX", data=filter['Age'], color = "#b80606")
+ax = sns.barplot(x="Times", y="XXX", data=filter['Age'], color = "#b80606")
 
-#st.pyplot(fig)
+st.pyplot(fig)
 
 
 
