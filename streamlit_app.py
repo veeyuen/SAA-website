@@ -175,7 +175,7 @@ fig, ax = plt.subplots()
 
 #ax = sns.displot(data=filter, x='Age', kde=True, color = "#b80606")
 plt.title("Distribution of Times/Distances")
-ax = sns.hisplot(data=filter, x='Age', kde=True, color = "#b80606")
+ax = sns.histplot(data=filter, x='Age', kde=True, color = "#b80606")
 
 
 st.pyplot(fig)
