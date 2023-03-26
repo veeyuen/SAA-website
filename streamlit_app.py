@@ -187,15 +187,14 @@ st.write(summary)
 
 # Upload csv
 
-file = st.file_uploader("Upload records via CSV file", accept_multiple_files=False)
+uploaded_file = st.file_uploader("Upload records via CSV file", accept_multiple_files=False)
 
-if file is not None:
+if uploaded_file is not None:
 
-    bytes_data = file.getvalue()
+    df_new=pd.read_csv(uploaded_file)
 
-    st.write(bytes_data)
 
-    st.write("File uploaded:", file.name)
+
 
 
 
