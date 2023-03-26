@@ -185,9 +185,15 @@ st.write(summary)
 
 file = st.file_uploader("Please choose a CSV file", accept_multiple_files=False)
 
-bytes_data = file.read()
+if file is not None:
 
-st.write("File uploaded:", file.name)
+    bytes_data = file.getvalue()
+
+    st.write(bytes_data)
+
+    st.write("File uploaded:", file.name)
+
+
 
 
 
