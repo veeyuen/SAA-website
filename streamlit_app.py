@@ -153,13 +153,17 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 events = data['Event'].drop_duplicates()
 event_choice = st.sidebar.selectbox('Select the event:', events)
 dates = data["Date"].loc[data["Event"] == event_choice]
-date_choice = st.sidebar.selectbox('Date', dates)
+#date_choice = st.sidebar.selectbox('Date', dates)
 
-#mask = (data['Date'] > start_date) & (data['Date'] <= end_date)
+#filter=data.loc[(data['Event']==event_choice) & (data['Date']==date_choice)]
 
-#filter=data.loc[(data['Event']==make_choice) & (data.loc[mask])]
 
-filter=data.loc[(data['Event']==event_choice) & (data['Date']==date_choice)]
+start_date = st.sidebar.selectbox('Start Date', dates)
+end_date = st.sidebar.selectbox('End Date', dates)
+
+mask = (data['Date'] > start_date) & (data['Date'] <= end_date)
+
+filter=data.loc[(data['Event']==event_choice) & (data.loc[mask])]
 
 
 #container = st.beta_container()
