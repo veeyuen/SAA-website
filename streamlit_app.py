@@ -4,6 +4,7 @@ import streamlit as st
 import csv
 import pandas as pd
 import numpy as np
+import datetime
 
 from matplotlib import pyplot as plt
 import seaborn as sns
@@ -266,6 +267,7 @@ def clean(data):
         out = preprocess(i, input_string, metric)
 
         data.loc[rowIndex, 'Metric'] = out
+
     return data
 
 
