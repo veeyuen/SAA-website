@@ -176,8 +176,8 @@ ax = sns.histplot(data=filter, x='Age', kde=True, color = "#b80606")
 
 st.pyplot(fig)
 
-data.describe()
-
+summary = filter.describe(include='all').fillna("").astype("str")
+st.write(summary)
 
 
 ## Data preprocess and cleaning
