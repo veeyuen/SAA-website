@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import datetime
 import openpyxl
+import logging
 
 from matplotlib import pyplot as plt
 import seaborn as sns
@@ -265,11 +266,11 @@ st.write(summary)
 
 ## Upload CSV
 
-uploaded_file = st.file_uploader("Upload records via EXCEL file", accept_multiple_files=False)
+uploaded_file = st.file_uploader("Upload new records via CSV file", accept_multiple_files=False)
 
 if uploaded_file is not None:
 
-    df_new=pd.read_excel(uploaded_file)
+    df_new=pd.read_csv(uploaded_file)
     df_processed=clean(df_new)
     st.dataframe(df_processed)
 
