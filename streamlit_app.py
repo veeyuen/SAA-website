@@ -169,7 +169,7 @@ filter=data.loc[mask]
 
 st.dataframe(filter)
 
-ages=filter['Age']
+ages = pd.Series(filter,name="Age")
 
 fig, ax = plt.subplots()
 
