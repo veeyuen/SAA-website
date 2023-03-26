@@ -96,6 +96,7 @@ def clean(data):
 
 
 
+
 # Create API client.
 #credentials = service_account.Credentials.from_service_account_info(
 #    st.secrets["gcp_service_account"]
@@ -268,7 +269,7 @@ if uploaded_file is not None:
     df_new=pd.read_csv(uploaded_file)
     st.dataframe(df_new)
     df_processed=clean(df_new)
-
+    st.dataframe(df_processed)
 
 
 
