@@ -195,12 +195,6 @@ if uploaded_file is not None:
     st.dataframe(df_new)
 
 
-
-
-
-
-
-
 ## Data preprocess and cleaning
 def preprocess(i, string, metric):
 
@@ -273,6 +267,16 @@ def clean(data):
 
         data.loc[rowIndex, 'Metric'] = out
     return data
+
+
+# Clean and process uploaded data
+
+if uploaded_file is not None:
+
+
+    df_processed=clean(df_new)
+
+
 
 
 ## Upload csv into GCS
