@@ -171,7 +171,7 @@ st.dataframe(filter)
 
 fig, ax = plt.subplots()
 
-ax = sns.histplot(data=filter, x='Age', kde=True, color = "#b80606")
+ax = sns.distplot(data=filter, x='Age', kde=True, color = "#b80606")
 
 st.pyplot(fig)
 
@@ -183,7 +183,7 @@ st.write(summary)
 
 # Upload csv
 
-file = st.file_uploader("Please choose a CSV file", accept_multiple_files=False)
+file = st.file_uploader("Upload records via CSV file", accept_multiple_files=False)
 
 if file is not None:
 
