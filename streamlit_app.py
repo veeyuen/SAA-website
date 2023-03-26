@@ -152,11 +152,38 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 events = data['Event'].drop_duplicates()
 make_choice = st.sidebar.selectbox('Select the event:', events)
-dates = data["Date"].loc[data["Event"] == make_choice]
-date_choice = st.sidebar.selectbox('Date', dates)
+start_date = data["Date"].loc[data["Event"] == make_choice_start]
+date_choice_start = st.sidebar.selectbox('Start Date', start_date)
+end_date = data["Date"].loc[data["Event"] == make_choice_end]
+date_choice_end = st.sidebar.selectbox('End Date', end_date)
 
-filter=data.loc[(data['Event']==make_choice) & (data['Date']==date_choice)]
+mask = (data['Date'] > start_date) & (data['Date'] <= end_date)
+
+filter=data.loc[(data['Event']==make_choice) & (data.loc[mask])]
+
+#filter=data.loc[(data['Event']==make_choice) & (data['Date']==date_choice)]
+
+
+#container = st.beta_container()
+#all = st.checkbox("Select all years")
+
+#if all:
+#    date_choice = container.multiselect("Select year:",
+#         ['A', 'B', 'C'],['A', 'B', 'C'])
+
+#    filter=data.loc[(data['Event']==make_choice)]
+
+
+#else:
+#    selected_options =  container.multiselect("Select one or more options:",
+#        ['A', 'B', 'C'])
+
+#    filter=data.loc[(data['Event']==make_choice) & (data['Date']==date_choice)]
+
+
 st.dataframe(filter)
+
+
 
 
 ## Data preprocess and cleaning
