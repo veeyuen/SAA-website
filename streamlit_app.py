@@ -152,9 +152,8 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 events = data['Event'].drop_duplicates()
 event_choice = st.sidebar.selectbox('Select the event:', events)
-years = data["Date"].loc[data["Event"] == event_choice]
-year_choice_start = st.sidebar.selectbox('Start Date', start_date)
-year_choice_end = st.sidebar.selectbox('End Date', end_date)
+dates = data["Date"].loc[data["Event"] == event_choice]
+date_choice = st.sidebar.selectbox('Date', dates)
 
 #mask = (data['Date'] > start_date) & (data['Date'] <= end_date)
 
