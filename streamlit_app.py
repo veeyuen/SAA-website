@@ -178,7 +178,7 @@ st.pyplot(fig)
 
 stats=filter['Age']
 
-summary = stats.describe(include='all').fillna("").astype("str")
+summary = stats.describe()
 st.write(summary)
 
 
