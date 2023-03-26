@@ -157,9 +157,9 @@ date_choice_start = st.sidebar.selectbox('Start Date', start_date)
 end_date = data["Date"].loc[data["Event"] == make_choice_end]
 date_choice_end = st.sidebar.selectbox('End Date', end_date)
 
-mask = (data['Date'] > start_date) & (data['Date'] <= end_date)
+#mask = (data['Date'] > start_date) & (data['Date'] <= end_date)
 
-filter=data.loc[(data['Event']==make_choice) & (data.loc[mask])]
+#filter=data.loc[(data['Event']==make_choice) & (data.loc[mask])]
 
 #filter=data.loc[(data['Event']==make_choice) & (data['Date']==date_choice)]
 
