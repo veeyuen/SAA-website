@@ -161,9 +161,9 @@ dates = data["Date"].loc[data["Event"] == event_choice]
 start_date = st.sidebar.selectbox('Start Date', dates)
 end_date = st.sidebar.selectbox('End Date', dates)
 
-mask = (data['Date'] > start_date) & (data['Date'] <= end_date)
+mask = (data['Date'] > start_date) & (data['Date'] <= end_date & data['Event']==event_choice)
 
-filter=data.loc[data['Event']==event_choice & (data['Date'] > start_date) & (data['Date'] <= end_date)]
+filter=data.loc[mask]
 
 
 #container = st.beta_container()
