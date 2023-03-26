@@ -183,7 +183,7 @@ filter=data.loc[mask]
 #    filter=data.loc[(data['Event']==make_choice) & (data['Date']==date_choice)]
 
 
-#st.dataframe(filter)
+st.dataframe(filter)
 
 
 
