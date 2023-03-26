@@ -181,8 +181,7 @@ ax = sns.distplot(ages, kde=True, color = "#b80606")
 
 st.pyplot(fig)
 
-
-summary = stats.describe()
+summary = ages.describe()
 st.write(summary)
 
 
