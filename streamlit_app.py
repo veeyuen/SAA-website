@@ -171,7 +171,7 @@ st.dataframe(filter)
 
 fig, ax = plt.subplots()
 
-ax = sns.distplot(data=filter, x='Age', kde=True, color = "#b80606")
+ax = sns.displot(data=filter, x='Age', kde=True, color = "#b80606")
 
 st.pyplot(fig)
 
