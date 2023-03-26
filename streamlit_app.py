@@ -174,9 +174,9 @@ ages = filter['Age']
 fig, ax = plt.subplots()
 
 plt.title("Distribution of Times/Distances")
-#ax = sns.histplot(data=filter, x='Age', kde=True, color = "#b80606")
+ax = sns.histplot(data=filter, x='Age', kde=True, color = "#b80606")
 
-ax = sns.distplot(filter)
+#ax = sns.distplot(filter)
 
 
 st.pyplot(fig)
