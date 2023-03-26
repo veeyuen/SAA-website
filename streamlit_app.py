@@ -64,7 +64,6 @@ URL = ("https://storage.googleapis.com/singapore_athletics_association/consolida
 
 def load_data():
 
-    st.write("Loading data from Google Cloud Storage....")
     client = storage.Client()
     data = pd.read_csv(URL, usecols = ['Date','Event', 'Name', 'Age', 'Team', 'Result', 'm/s', 'Competition',
               'Year D.O.B.', 'Info, if any'])
