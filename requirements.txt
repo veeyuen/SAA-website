@@ -1,3 +1,4 @@
 streamlit
 google-cloud-storage==2.4.0
 requests
+openpyxl
