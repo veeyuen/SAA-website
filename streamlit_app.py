@@ -31,6 +31,8 @@ def preprocess(i, string, metric):
 
     string=string.lower()
 
+    OP=0
+
     if any(s in string for s in l)==True:
 
         OP=float(str(metric))
