@@ -154,8 +154,8 @@ events = data['Event'].drop_duplicates()
 make_choice = st.sidebar.selectbox('Select the event:', events)
 start_date = data["Date"].loc[data["Event"] == make_choice_start]
 date_choice_start = st.sidebar.selectbox('Start Date', start_date)
-end_date = data["Date"].loc[data["Event"] == make_choice_end]
-date_choice_end = st.sidebar.selectbox('End Date', end_date)
+#end_date = data["Date"].loc[data["Event"] == make_choice_end]
+#date_choice_end = st.sidebar.selectbox('End Date', end_date)
 
 #mask = (data['Date'] > start_date) & (data['Date'] <= end_date)
 
