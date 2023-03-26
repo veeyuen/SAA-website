@@ -181,6 +181,16 @@ summary = stats.describe()
 st.write(summary)
 
 
+# Upload csv
+
+file = st.file_uploader("Please choose a CSV file", accept_multiple_files=False)
+
+bytes_data = file.read()
+
+st.write("File uploaded:", file.name)
+
+
+
 ## Data preprocess and cleaning
 def preprocess(i, string, metric):
 
