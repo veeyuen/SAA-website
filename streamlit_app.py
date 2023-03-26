@@ -159,7 +159,7 @@ date_choice = st.sidebar.selectbox('Date', dates)
 
 #filter=data.loc[(data['Event']==make_choice) & (data.loc[mask])]
 
-#filter=data.loc[(data['Event']==make_choice) & (data['Date']==date_choice)]
+filter=data.loc[(data['Event']==event_choice) & (data['Date']==date_choice)]
 
 
 #container = st.beta_container()
