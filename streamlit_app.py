@@ -172,7 +172,7 @@ st.dataframe(filter)
 
 fig, ax = plt.subplots()
 
-ax = sns.barplot(x="Times", y="XXX", data=filter['Age'], color = "#b80606")
+ax = sns.histplot(data=filter['Age'], x='Age', color = "#b80606")
 
 st.pyplot(fig)
 
