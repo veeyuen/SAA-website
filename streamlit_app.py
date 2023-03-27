@@ -7,7 +7,6 @@ import numpy as np
 import datetime
 import logging
 import sys
-import openpyxl
 import seaborn as sns
 
 
@@ -250,12 +249,11 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 #st.dataframe(filter_dataframe(data))
 
 
+# Filter dataframe
+
 events = data['Event'].drop_duplicates()
 event_choice = st.sidebar.selectbox('Select the event:', events)
 dates = data["Date"].loc[data["Event"] == event_choice]
-#date_choice = st.sidebar.selectbox('Date', dates)
-
-#filter=data.loc[(data['Event']==event_choice) & (data['Date']==date_choice)]
 
 
 start_date = st.sidebar.selectbox('Start Date', dates)
@@ -298,7 +296,7 @@ if uploaded_file is not None:
 
     except:
 
-        st.warning("Error encountered loading data file. Please check column and data formats.")
+        st.warning("Error encountered loading data file. Please check column positions and data formats.")
 
 
 
@@ -319,6 +317,27 @@ def upload(file):
     blob = bucket.blob("consolidated.csv")
     blob.upload_from_filename("consolidated.csv")
 
+
 # Upload dataframe into GCS as csv
-#    df.to_csv()
-#    bucket.blob('consolidated.csv').upload_from_string(df.to_csv(), 'text/csv')
+
+
+def upload_csv(df):
+
+    client = storage.Client()
+    bucket = client.get_bucket('singapore_athletics_association')
+
+    df.to_csv()
+    bucket.blob('consolidated.csv').upload_from_string(df.to_csv(), 'text/csv')
+
+# Merge newly created df with previous df
+
+frames=[df, data]
+
+consolidated_df = pd.concat(frames)
+consolidated_df.reset_index(drop=True)
+
+# Upload new df into GCS
+
+upload_csv(consolidated_df)
+
+st.write("Uploaded..")
