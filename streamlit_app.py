@@ -26,7 +26,6 @@ from google.cloud import storage
 
 # Logging
 
-st.warning("warning")
 
 logging.basicConfig(level = logging.DEBUG,
                     format = '%(asctime)s:%(levelname)s:%(name)s:%(message)s')
@@ -54,9 +53,14 @@ def preprocess(i, string, metric):
 
     string=string.lower()
 
+    st.warning("warning")
+
+
     if any(s in string for s in l)==True:
 
         OP=float(str(metric))
+
+
 
     else:
 
@@ -66,7 +70,7 @@ def preprocess(i, string, metric):
         count = substring.count(searchstring)
         count2 = substring.count(searchstring2)
 
-        logging.error('%s raised an error', substring)
+        st.warning("inside loop warning")
 
 
         if count==0:
