@@ -109,7 +109,7 @@ def clean(data):
         rowIndex = data.index[i]
 
         input_string=data.iloc[rowIndex,1]
-        metric=data.iloc[rowIndex,6]
+        metric=data.iloc[rowIndex,5]
 
         processed_output = preprocess(i, input_string, metric)
 
