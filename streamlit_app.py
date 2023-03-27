@@ -5,8 +5,8 @@ import csv
 import pandas as pd
 import numpy as np
 import datetime
-import openpyxl
 import logging
+import sys
 
 from matplotlib import pyplot as plt
 import seaborn as sns
@@ -20,6 +20,27 @@ from pandas.api.types import (
 
 from google.oauth2 import service_account
 from google.cloud import storage
+
+# Logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(message)s')
+
+stdout_handler = logging.StreamHandler(sys.stdout)
+stdout_handler.setLevel(logging.DEBUG)
+stdout_handler.setFormatter(formatter)
+
+file_handler = logging.FileHandler('logs.log')
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(formatter)
+
+
+logger.addHandler(file_handler)
+logger.addHandler(stdout_handler)
+
+
+
 
 bucket_name = "singapore_athletics_association"
 file_path = "consolidated.csv"
@@ -46,10 +67,11 @@ def preprocess(i, string, metric):
         count2 = substring.count(searchstring2)
 
         st.write(substring)
+        logging.error('%s raised an error', substring)
+
 
         if count==0:
-#            OP=float(substring)
-            OP=substring
+            OP=float(substring)
 
 
 
