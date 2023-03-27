@@ -113,10 +113,12 @@ def clean(data):
 
         rowIndex = data.index[i]
 
-        st.write(i)
-
         input_string=data.iloc[rowIndex,2]
         metric=data.iloc[rowIndex,6]
+
+        st.write(input_string)
+        st.write(metric)
+
 
         processed_output = preprocess(i, input_string, metric)
 
