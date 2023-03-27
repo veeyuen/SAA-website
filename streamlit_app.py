@@ -69,7 +69,7 @@ def preprocess(i, string, metric):
         count2 = substring.count(searchstring2)
 
         st.warning("inside loop warning")
-        st.write(substring)
+        st.write(metric)
 
 
         if count==0:
