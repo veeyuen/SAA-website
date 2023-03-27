@@ -26,6 +26,10 @@ from google.cloud import storage
 
 # Logging
 
+logging.basicConfig(filename = 'file.log',
+                    level = logging.DEBUG,
+                    format = '%(asctime)s:%(levelname)s:%(name)s:%(message)s')
+
 logging.critical('Debug message')
 
 
