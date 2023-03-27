@@ -11,10 +11,10 @@ import openpyxl
 import seaborn as sns
 
 
-from loguru import logger
+from loguru import Logger
 from matplotlib import pyplot as plt
 
-logger.debug("that's it")
+Logger.debug("that's it")
 
 from pandas.api.types import (
     is_categorical_dtype,
