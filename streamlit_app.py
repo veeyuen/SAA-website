@@ -11,10 +11,8 @@ import openpyxl
 import seaborn as sns
 
 
-from loguru import Logger
 from matplotlib import pyplot as plt
 
-Logger.debug("that's it")
 
 from pandas.api.types import (
     is_categorical_dtype,
@@ -27,6 +25,8 @@ from google.oauth2 import service_account
 from google.cloud import storage
 
 # Logging
+
+logging.debug('Debug message')
 
 
 
