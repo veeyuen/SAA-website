@@ -8,6 +8,7 @@ import datetime
 import logging
 import sys
 
+
 from matplotlib import pyplot as plt
 import seaborn as sns
 
@@ -38,6 +39,9 @@ def preprocess(i, string, metric):
     l=['discus', 'throw', 'jump', 'vault', 'shot']
 
     string=string.lower()
+
+    logging.error('raised an error')
+
 
     if any(s in string for s in l)==True:
 
