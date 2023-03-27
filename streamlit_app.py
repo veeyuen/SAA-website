@@ -53,8 +53,6 @@ def preprocess(i, string, metric):
 
     string=string.lower()
 
-    st.warning("warning")
-
 
     if any(s in string for s in l)==True:
 
@@ -70,7 +68,7 @@ def preprocess(i, string, metric):
         count = substring.count(searchstring)
         count2 = substring.count(searchstring2)
 
-        st.warning("inside loop warning")
+        st.warning("inside loop warning", substring)
 
 
         if count==0:
