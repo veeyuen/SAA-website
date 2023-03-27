@@ -119,7 +119,7 @@ def clean(data):
 
 
 
- Create API client.
+# Create API client
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
 )
