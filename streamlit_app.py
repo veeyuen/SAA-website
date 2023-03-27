@@ -26,10 +26,15 @@ from google.cloud import storage
 
 # Logging
 
-logging.basicConfig(filename = 'SAA_logging.log',
-                    filemode='w',
-                    level = logging.DEBUG,
+logging.basicConfig(level = logging.DEBUG,
                     format = '%(asctime)s:%(levelname)s:%(name)s:%(message)s')
+
+#logging.basicConfig(filename = 'SAA_logging.log',
+#                    filemode='w',
+#                    level = logging.DEBUG,
+#                    format = '%(asctime)s:%(levelname)s:%(name)s:%(message)s')
+
+
 
 logging.critical('Debug message')
 
