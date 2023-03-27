@@ -48,8 +48,6 @@ def preprocess(i, string, metric):
 
     else:
 
-        logger.debug("reached here")
-
         searchstring = ":"
         searchstring2 = "."
         substring=str(metric)
@@ -160,9 +158,6 @@ def load_data():
     return data
 
 data = load_data()
-
-
-log.debug("Doing something!")
 
 #st.dataframe(data)
 
