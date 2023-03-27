@@ -160,6 +160,9 @@ def load_data():
 
 data = load_data()
 
+
+log.debug("Doing something!")
+
 #st.dataframe(data)
 
 ## Interactive dataframe filtering
