@@ -329,15 +329,17 @@ def upload_csv(df):
     df.to_csv()
     bucket.blob('consolidated.csv').upload_from_string(df.to_csv(), 'text/csv')
 
+    return
+
 # Merge newly created df with previous df
 
-frames=[df, data]
+frames=[df_processed, data]
 
-consolidated_df = pd.concat(frames)
-consolidated_df.reset_index(drop=True)
+upload_df = pd.concat(frames)
+upload_df.reset_index(drop=True)
 
 # Upload new df into GCS
 
-upload_csv(consolidated_df)
+upload_csv(upload_df)
 
 st.write("Uploaded..")
