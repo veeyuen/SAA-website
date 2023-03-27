@@ -26,7 +26,8 @@ from google.cloud import storage
 
 # Logging
 
-logging.basicConfig(filename = 'file.log',
+logging.basicConfig(filename = 'SAA_logging.log',
+                    filemode='w',
                     level = logging.DEBUG,
                     format = '%(asctime)s:%(levelname)s:%(name)s:%(message)s')
 
