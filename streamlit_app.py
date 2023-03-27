@@ -26,7 +26,7 @@ from google.cloud import storage
 
 # Logging
 
-logging.debug('Debug message')
+logging.critical('Debug message')
 
 
 
