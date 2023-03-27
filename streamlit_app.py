@@ -25,7 +25,7 @@ from google.cloud import storage
 # Logging
 
 
-
+log = logging.getLogger("my-logger")
 
 
 bucket_name = "singapore_athletics_association"
@@ -40,8 +40,7 @@ def preprocess(i, string, metric):
 
     string=string.lower()
 
-    logging.error('raised an error')
-
+    log.info("Hello, world")
 
     if any(s in string for s in l)==True:
 
