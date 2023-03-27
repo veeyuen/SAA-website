@@ -7,10 +7,14 @@ import numpy as np
 import datetime
 import logging
 import sys
-
-
-from matplotlib import pyplot as plt
+import openpyxl
 import seaborn as sns
+
+
+from loguru import Logger
+from matplotlib import pyplot as plt
+
+logger.debug("that's it")
 
 from pandas.api.types import (
     is_categorical_dtype,
@@ -25,9 +29,6 @@ from google.cloud import storage
 # Logging
 
 
-#log = logging.getLogger("my-logger")
-log = logging.getLogger(__name__)
-
 
 bucket_name = "singapore_athletics_association"
 file_path = "consolidated.csv"
@@ -41,13 +42,13 @@ def preprocess(i, string, metric):
 
     string=string.lower()
 
-    log.debug("Doing something!")
-
     if any(s in string for s in l)==True:
 
         OP=float(str(metric))
 
     else:
+
+        logger.debug("reached here")
 
         searchstring = ":"
         searchstring2 = "."
