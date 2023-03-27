@@ -333,13 +333,12 @@ def upload_csv(df):
 
 # Merge newly created df with previous df
 
-st.dataframe(df_processed)
-st.dataframe(data)
-
 frames=[df_processed, data]
 
 upload_df = pd.concat(frames)
 upload_df.reset_index(drop=True)
+
+st.dataframe(upload_df)
 
 # Upload new df into GCS
 
