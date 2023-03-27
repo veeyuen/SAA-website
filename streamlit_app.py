@@ -37,7 +37,6 @@ logging.basicConfig(level = logging.DEBUG,
 
 
 
-logging.critical('Debug message')
 
 
 
@@ -67,10 +66,6 @@ def preprocess(i, string, metric):
         substring=str(metric)
         count = substring.count(searchstring)
         count2 = substring.count(searchstring2)
-
-        st.warning("inside loop warning")
-        st.write("2222")
-
 
         if count==0:
             OP=float(substring)
@@ -115,10 +110,6 @@ def clean(data):
 
         input_string=data.iloc[rowIndex,1]
         metric=data.iloc[rowIndex,5]
-
-        st.write(input_string)
-        st.write(metric)
-
 
         processed_output = preprocess(i, input_string, metric)
 
@@ -299,7 +290,6 @@ uploaded_file = st.file_uploader("Upload new records via CSV file", accept_multi
 if uploaded_file is not None:
 
     df_new=pd.read_csv(uploaded_file)
-    st.dataframe(df_new)
 
     df_processed=clean(df_new)
     st.dataframe(df_processed)
