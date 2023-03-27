@@ -113,7 +113,7 @@ def clean(data):
 
         rowIndex = data.index[i]
 
-        st.write("inside already")
+        st.write(i)
 
         input_string=data.iloc[rowIndex,2]
         metric=data.iloc[rowIndex,6]
