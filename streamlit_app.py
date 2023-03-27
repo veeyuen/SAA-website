@@ -113,8 +113,8 @@ def clean(data):
 
         rowIndex = data.index[i]
 
-        input_string=data.iloc[rowIndex,2]
-        metric=data.iloc[rowIndex,6]
+        input_string=data.iloc[rowIndex,1]
+        metric=data.iloc[rowIndex,5]
 
         st.write(input_string)
         st.write(metric)
