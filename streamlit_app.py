@@ -11,7 +11,7 @@ import openpyxl
 import seaborn as sns
 
 
-from loguru import Logger
+from loguru import logger
 from matplotlib import pyplot as plt
 
 logger.debug("that's it")
