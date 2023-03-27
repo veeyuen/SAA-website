@@ -109,7 +109,7 @@ def clean(data):
         rowIndex = data.index[i]
 
         input_string=data.iloc[rowIndex,1]
-        metric=data.iloc[rowIndex,5]
+        metric=data.iloc[rowIndex,6]
 
         processed_output = preprocess(i, input_string, metric)
 
@@ -289,10 +289,16 @@ uploaded_file = st.file_uploader("Upload new records via CSV file", accept_multi
 
 if uploaded_file is not None:
 
-    df_new=pd.read_csv(uploaded_file)
+    try:
 
-    df_processed=clean(df_new)
-    st.dataframe(df_processed)
+        df_new=pd.read_csv(uploaded_file)
+
+        df_processed=clean(df_new)
+        st.dataframe(df_processed)
+
+    except:
+
+        st.warning("Error encountered loading data file. Please check column and data formats.")
 
 
 
