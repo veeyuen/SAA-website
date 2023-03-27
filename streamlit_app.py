@@ -333,6 +333,9 @@ def upload_csv(df):
 
 # Merge newly created df with previous df
 
+st.dataframe(df_processed)
+st.dataframe(data)
+
 frames=[df_processed, data]
 
 upload_df = pd.concat(frames)
